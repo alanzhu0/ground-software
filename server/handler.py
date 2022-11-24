@@ -1,3 +1,4 @@
+# pylint: disable=W0201
 from queue import Empty, Queue
 import time
 import heapq

@@ -326,7 +326,8 @@
   "test_type": {
     "Nitrous": "Nitrous",
     "Ethanol": "Ethanol",
-    "Full": "Full"
+    "Full": "Full",
+    "FullWater": "Full Water Cold Flow"
   },
   "Authorized_IPs": ["localhost"]
 }

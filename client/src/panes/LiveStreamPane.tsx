@@ -51,6 +51,7 @@ const LivestreamPane = () => {
         <option value="NITROUS">{config.test_type.Nitrous}</option>
         <option value="ETHANOL">{config.test_type.Ethanol}</option>
         <option value="FULL">{config.test_type.Full}</option>
+        <option value="FULLWATER">{config.test_type.FullWater}</option>
       </select>
 
       <div

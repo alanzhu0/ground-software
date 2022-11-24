@@ -2,10 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+        <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
-        <meta name="description" content="Ground station for Project Caelus" />
+        <meta name="description" content="Ground Station for Project Caelus" />
         <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -21,18 +21,48 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
         <title>Ground Station | Project Caelus</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root"></div>
-        <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+  
+      <script>
+        function loadPidStyle() {
+          if(location.href.replace("http://" + location.host, "") == "/pid")
+            $("object").attr("style", "height: 100vh; width: 98vw; margin-bottom: -40px;");
+          else
+            $("object").attr("style", "height: 100%; width: 100%;");
+        }
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+        function loadPidValues(e) {
+          e = $(e.target);
+          // Get the text (sensor/valve reading/state) from e and put it into the corresponding div in the P&ID
+          $("object").contents().find("div." + e.attr("class").split(/\s+/)[1]).text(e.text());
+        }
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    --></body>
+        function loadAllPidValues() {
+          $("p.diagram-object").each(function() {
+            loadPidValues({target: this});
+          }); 
+        }
+
+        function initializePid() {
+          loadPidStyle();
+          loadAllPidValues();
+        }
+
+        $(function() {
+          // Autoupdating every 50 ms
+          setInterval(initializePid, 50);
+
+          /* Using event listeners:
+          initializePid();
+          $("#nav").click(initializePid);
+          $("select").on("change click blur", function() { console.log("a"); initializePid(100); });
+          $("p.diagram-object").on("DOMSubtreeModified", loadPidValues);
+          */
+        });
+      </script>
+    </body>
 </html>

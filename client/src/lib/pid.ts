@@ -1,11 +1,12 @@
 import Nitrouspid from "../images/nitrouspid.png";
 import Ethanolpid from "../images/ethanolpid.png";
 import Fullpid from "../images/fullpid.png";
+import FullWaterpid from "../images/fullwaterpid.svg";
 
 // CONSTANTS
 export const VALVE_MAP = {
   1: "OPEN",
-  0: "CLOSED",
+  0: "Closed",
 };
 
 export const PADDING = {
@@ -51,6 +52,7 @@ export const PADDING = {
       },
     },
   },
+
   ETHANOL: {
     IMAGE: {
       SRC: Ethanolpid,
@@ -89,6 +91,7 @@ export const PADDING = {
       },
     },
   },
+
   FULL: {
     IMAGE: {
       SRC: Fullpid,
@@ -96,8 +99,8 @@ export const PADDING = {
     },
     SENSOR: {
       "PT-1": {
-        x: 1613 / 3200,
-        y: 201 / 1595,
+        x: 639 / 3200,
+        y: 170 / 1595,
       },
       "PT-2": {
         x: 2412 / 3200,
@@ -168,6 +171,85 @@ export const PADDING = {
       ethanol_mpv: {
         x: 1969 / 3200,
         y: 1152 / 1595,
+      },
+    },
+  },
+
+  FULLWATER: {
+    IMAGE: {
+      SRC: FullWaterpid,
+      ALT: "fullwaterpid",
+    },
+    STYLE: {
+      display: "none",
+    },
+    SENSOR: {
+      "PT-1": {
+        x: 592 / 1061,
+        y: 161 / 812,
+        display: "none",
+      },
+      "PT-2": {
+        x: 710 / 1061,
+        y: 280 / 812,
+        display: "none",
+      },
+      "PT-3": {
+        x: 663 / 1061,
+        y: 543 / 812,
+        display: "none",
+      },
+      "PT-4": {
+        x: 919 / 1061,
+        y: 693 / 812,
+        display: "none",
+      },
+      "PT-5": {
+        x: 226 / 1061,
+        y: 160 / 812,
+        display: "none",
+      },
+      "PT-6": {
+        x: 491 / 1061,
+        y: 157 / 812,
+        display: "none",
+      },
+      "PT-7": {
+        x: 83 / 1061,
+        y: 521 / 812,
+        display: "none",
+      },
+    },
+    VALVE: {
+      nitrous_vent: {
+        x: 10 / 1061,
+        y: 153 / 812,
+        display: "none",
+      },
+      nitrous_pressurization: {
+        x: 366 / 1061,
+        y: 337 / 812,
+        display: "none",
+      },
+      nitrous_mpv: {
+        x: 152 / 1061,
+        y: 731 / 812,
+        display: "none",
+      },
+      ethanol_vent: {
+        x: 984 / 1061,
+        y: 193 / 812,
+        display: "none",
+      },
+      ethanol_pressurization: {
+        x: 551 / 1061,
+        y: 247 / 812,
+        display: "none",
+      },
+      ethanol_mpv: {
+        x: 699 / 1061,
+        y: 739 / 812,
+        display: "none",
       },
     },
   },

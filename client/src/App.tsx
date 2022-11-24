@@ -1,11 +1,11 @@
 import React from "react";
 
 import StatisticsView from "./views/StatisticsView";
+import PIDView from "./views/PIDView";
 import ActionsView from "./views/ActionsView";
 import CountdownView from "./views/CountdownView";
 
 import "./App.css";
-import Logo from "./images/logo.png";
 
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import LiveStreamView from "./views/LiveStreamView";
@@ -30,12 +30,16 @@ function Navbar() {
   return (
     <div
       style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+      id="nav"
     >
       <NavbarItem>
         <b style={{ fontSize: "1.5rem" }}>Ground Software</b>
       </NavbarItem>
       <NavbarItem>
         <Link to="/">Dashboard</Link>
+      </NavbarItem>
+      <NavbarItem>
+        <b><Link to="/pid">P&ID</Link></b>
       </NavbarItem>
       <NavbarItem>
         <Link to="/actions">Actions</Link>
@@ -56,6 +60,9 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Switch>
+          <Route path="/pid" exact>
+            <PIDView />
+          </Route>
           <Route path="/actions" exact>
             <ActionsView />
           </Route>
@@ -70,7 +77,6 @@ const App = () => {
           </Route>
         </Switch>
       </BrowserRouter>
-      <img src={Logo} id="logo" alt="Logo" />
     </div>
   );
 };
